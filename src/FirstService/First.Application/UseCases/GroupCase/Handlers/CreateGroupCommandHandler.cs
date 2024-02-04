@@ -34,6 +34,9 @@ namespace First.Application.UseCases.GroupCase.Handlers
             Faculty faculty = await _context.Faculties.FirstOrDefaultAsync(x => x.Id == request.FacultyId);
             group.Faculty = faculty;
 
+            Teacher teacher = await _context.Teachers.FirstOrDefaultAsync(x => x.Id == request.TeacherId);
+            group.Teachers.Add(teacher);
+            
 
             await _context.Groups.AddAsync(group);
             await _context.SaveChangesAsync();

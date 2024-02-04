@@ -22,10 +22,13 @@ namespace First.API.Controllers
 
         [HttpPost]
 
-        public async ValueTask<IActionResult> CreateStudentAsync(GroupDTO groupDTO)
+        public async ValueTask<IActionResult> CreateGroupAsync(GroupDTO groupDTO)
         {
             var command = new CreateGroupCommand()
             {
+                FacultyId = groupDTO.FacultyId,
+                TeacherId = groupDTO.TeacherId,
+                GroupNumber = groupDTO.GroupNumber,
 
             };
             await _mediator.Send(command);
@@ -50,7 +53,7 @@ namespace First.API.Controllers
 
 
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateStudent(int Id, [FromForm] GroupDTO groupDTO)
+        public async ValueTask<IActionResult> UpdateGroup(int Id, [FromForm] GroupDTO groupDTO)
         {
             var command = new UpdateGroupCommand()
             {

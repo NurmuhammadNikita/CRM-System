@@ -1,7 +1,7 @@
 ﻿
 using First.API.DTOs;
-using First.Application.UseCases.StudentCase.Commands;
-using First.Application.UseCases.StudentCase.Queries;
+using First.Application.UseCases.TeacherCase.Commands;
+using First.Application.UseCases.TeacherCase.Queries;
 using First.Application.UseCases.TeacherCase.Commands;
 using First.Application.UseCases.TeacherCase.Queries;
 using MediatR;
@@ -25,7 +25,7 @@ namespace First.API.Controllers
 
         public async ValueTask<IActionResult> CreateTeacherAsync(TeacherDTO teacherDTO)
         {
-            var command = new CreateStudentCommand()
+            var command = new CreateTeacherCommand()
             {
                 FirstName = teacherDTO.FirstName,
                 LastName = teacherDTO.LastName,

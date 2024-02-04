@@ -17,9 +17,9 @@ namespace First.Domain.Tables.Models
         public int OpeningDate { get; set; }
 
         public Faculty Faculty { get; set; }
+        public ICollection<Teacher> Teachers { get; set; }
         [JsonIgnore]
         public ICollection<Student> Students { get; set; }
-        public ICollection<Teacher> Teachers { get; set; }
 
     }
 }
